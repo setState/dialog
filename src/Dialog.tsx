@@ -3,6 +3,7 @@ import * as ReactDOM from 'react-dom';
 import KeyCode from 'rc-util/lib/KeyCode';
 import contains from 'rc-util/lib/Dom/contains';
 import Animate from 'rc-animate';
+import elementClass from 'element-class';
 import LazyRenderBox from './LazyRenderBox';
 import getScrollBarSize from 'rc-util/lib/getScrollBarSize';
 import IDialogPropTypes from './IDialogPropTypes';
@@ -56,6 +57,7 @@ export default class Dialog extends React.Component<IDialogPropTypes, any> {
     maskClosable: true,
     destroyOnClose: false,
     prefixCls: 'rc-dialog',
+    scrollClassName: '',
   };
 
   private inTransition: boolean;
@@ -321,6 +323,9 @@ export default class Dialog extends React.Component<IDialogPropTypes, any> {
     if (this.bodyIsOverflowing && this.scrollbarWidth !== undefined) {
       document.body.style.paddingRight = `${this.scrollbarWidth}px`;
     }
+
+    // 给body添加 scrollClassName
+    elementClass(document.body).add(this.props.scrollClassName);
   }
   addScrollingEffect = () => {
     openCount++;
@@ -360,6 +365,9 @@ export default class Dialog extends React.Component<IDialogPropTypes, any> {
   }
   resetScrollbar = () => {
     document.body.style.paddingRight = '';
+
+    // 给body添加 scrollClassName
+    elementClass(document.body).remove(this.props.scrollClassName);
   }
   adjustDialog = () => {
     if (this.wrap && this.scrollbarWidth !== undefined) {

@@ -27,6 +27,7 @@ interface IDialogPropTypes {
   maskStyle?: {};
   prefixCls?: string;
   wrapClassName?: string;
+  scrollClassName?: string;
   width?: number;
   height?: number;
   zIndex?: number;
