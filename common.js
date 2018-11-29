@@ -25622,7 +25622,7 @@ var Dialog = function (_React$Component) {
                 document.body.style.paddingRight = _this.scrollbarWidth + 'px';
             }
             // 给body添加 scrollClassName
-            __WEBPACK_IMPORTED_MODULE_9_element_class___default()(document.body).add(_this.props.scrollClassName);
+            __WEBPACK_IMPORTED_MODULE_9_element_class___default()(document.body).add('scroll-body');
         };
         _this.addScrollingEffect = function () {
             openCount++;
@@ -25665,7 +25665,7 @@ var Dialog = function (_React$Component) {
         _this.resetScrollbar = function () {
             document.body.style.paddingRight = '';
             // 给body添加 scrollClassName
-            __WEBPACK_IMPORTED_MODULE_9_element_class___default()(document.body).remove(_this.props.scrollClassName);
+            __WEBPACK_IMPORTED_MODULE_9_element_class___default()(document.body).remove('scroll-body');
         };
         _this.adjustDialog = function () {
             if (_this.wrap && _this.scrollbarWidth !== undefined) {
@@ -25766,8 +25766,7 @@ Dialog.defaultProps = {
     closable: true,
     maskClosable: true,
     destroyOnClose: false,
-    prefixCls: 'rc-dialog',
-    scrollClassName: ''
+    prefixCls: 'rc-dialog'
 };
 
 /***/ }),
