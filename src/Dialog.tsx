@@ -57,7 +57,6 @@ export default class Dialog extends React.Component<IDialogPropTypes, any> {
     maskClosable: true,
     destroyOnClose: false,
     prefixCls: 'rc-dialog',
-    scrollClassName: '',
   };
 
   private inTransition: boolean;
@@ -325,7 +324,7 @@ export default class Dialog extends React.Component<IDialogPropTypes, any> {
     }
 
     // 给body添加 scrollClassName
-    elementClass(document.body).add(this.props.scrollClassName);
+    elementClass(document.body).add('scroll-body');
   }
   addScrollingEffect = () => {
     openCount++;
@@ -367,7 +366,7 @@ export default class Dialog extends React.Component<IDialogPropTypes, any> {
     document.body.style.paddingRight = '';
 
     // 给body添加 scrollClassName
-    elementClass(document.body).remove(this.props.scrollClassName);
+    elementClass(document.body).remove('scroll-body');
   }
   adjustDialog = () => {
     if (this.wrap && this.scrollbarWidth !== undefined) {
