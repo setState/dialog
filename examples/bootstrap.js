@@ -1,14 +1,14 @@
 webpackJsonp([0],{
 
-/***/ 125:
+/***/ 129:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(126);
+module.exports = __webpack_require__(130);
 
 
 /***/ }),
 
-/***/ 126:
+/***/ 130:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -19,14 +19,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_possibleConstructorReturn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_possibleConstructorReturn__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_inherits__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_inherits___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_inherits__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_bootstrap_dist_css_bootstrap_css__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_bootstrap_dist_css_bootstrap_css__ = __webpack_require__(131);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_bootstrap_dist_css_bootstrap_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_bootstrap_dist_css_bootstrap_css__);
 throw new Error("Cannot find module \"rc-dialog/assets/bootstrap.less\"");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_dom__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__src_DialogWrap__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__src_DialogWrap__ = __webpack_require__(55);
 
 
 
@@ -81,12 +81,12 @@ __WEBPACK_IMPORTED_MODULE_6_react_dom___default.a.render(__WEBPACK_IMPORTED_MODU
 
 /***/ }),
 
-/***/ 127:
+/***/ 131:
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed: ModuleBuildError: Module build failed: ExtractPluginMissingException: svg-sprite-loader exception. svg-sprite-loader in extract mode requires the corresponding plugin\n    at Object.loader (/Users/neo/fe/dialog/node_modules/svg-sprite-loader/lib/loader.js:54:13)\n    at runLoaders (/Users/neo/fe/dialog/node_modules/webpack/lib/NormalModule.js:195:19)\n    at /Users/neo/fe/dialog/node_modules/loader-runner/lib/LoaderRunner.js:364:11\n    at /Users/neo/fe/dialog/node_modules/loader-runner/lib/LoaderRunner.js:230:18\n    at runSyncOrAsync (/Users/neo/fe/dialog/node_modules/loader-runner/lib/LoaderRunner.js:143:3)\n    at iterateNormalLoaders (/Users/neo/fe/dialog/node_modules/loader-runner/lib/LoaderRunner.js:229:2)\n    at /Users/neo/fe/dialog/node_modules/loader-runner/lib/LoaderRunner.js:202:4\n    at /Users/neo/fe/dialog/node_modules/enhanced-resolve/lib/CachedInputFileSystem.js:70:14\n    at process._tickCallback (internal/process/next_tick.js:61:11)");
+throw new Error("Module build failed: ModuleBuildError: Module build failed: ExtractPluginMissingException: svg-sprite-loader exception. svg-sprite-loader in extract mode requires the corresponding plugin\n    at Object.loader (/Users/neo/WorkSpace/react-component/dialog/node_modules/svg-sprite-loader/lib/loader.js:54:13)\n    at runLoaders (/Users/neo/WorkSpace/react-component/dialog/node_modules/webpack/lib/NormalModule.js:195:19)\n    at /Users/neo/WorkSpace/react-component/dialog/node_modules/loader-runner/lib/LoaderRunner.js:367:11\n    at /Users/neo/WorkSpace/react-component/dialog/node_modules/loader-runner/lib/LoaderRunner.js:233:18\n    at runSyncOrAsync (/Users/neo/WorkSpace/react-component/dialog/node_modules/loader-runner/lib/LoaderRunner.js:143:3)\n    at iterateNormalLoaders (/Users/neo/WorkSpace/react-component/dialog/node_modules/loader-runner/lib/LoaderRunner.js:232:2)\n    at /Users/neo/WorkSpace/react-component/dialog/node_modules/loader-runner/lib/LoaderRunner.js:205:4\n    at /Users/neo/WorkSpace/react-component/dialog/node_modules/enhanced-resolve/lib/CachedInputFileSystem.js:70:14\n    at process._tickCallback (internal/process/next_tick.js:61:11)");
 
 /***/ })
 
-},[125]);
+},[129]);
 //# sourceMappingURL=bootstrap.js.map

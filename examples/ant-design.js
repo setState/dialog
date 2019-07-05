@@ -1,14 +1,14 @@
 webpackJsonp([1],{
 
-/***/ 58:
+/***/ 60:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(59);
+module.exports = __webpack_require__(61);
 
 
 /***/ }),
 
-/***/ 59:
+/***/ 61:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -22,11 +22,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_extends__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_extends__);
 throw new Error("Cannot find module \"rc-dialog/assets/index.less\"");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_dom__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__src_DialogWrap__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__src_DialogWrap__ = __webpack_require__(55);
 
 
 
@@ -42,7 +42,7 @@ var getSvg = function getSvg(path) {
     var props = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
     var align = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
 
-    return __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("i", __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_extends___default()({}, props), __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("svg", { viewBox: "0 0 1024 1024", width: "1em", height: "1em", fill: "currentColor", style: align ? { verticalAlign: '-.125em ' } : {} }, __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("path", { d: path, "p-id": "5827" })));
+    return __WEBPACK_IMPORTED_MODULE_5_react__["createElement"]("i", __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_extends___default()({}, props), __WEBPACK_IMPORTED_MODULE_5_react__["createElement"]("svg", { viewBox: "0 0 1024 1024", width: "1em", height: "1em", fill: "currentColor", style: align ? { verticalAlign: '-.125em ' } : {} }, __WEBPACK_IMPORTED_MODULE_5_react__["createElement"]("path", { d: path, "p-id": "5827" })));
 };
 
 var MyControl = function (_React$Component) {
@@ -58,8 +58,9 @@ var MyControl = function (_React$Component) {
             width: 600,
             destroyOnClose: false,
             center: false,
-            mousePosition: {},
-            useIcon: false
+            mousePosition: undefined,
+            useIcon: false,
+            forceRender: false
         };
         _this.onClick = function (e) {
             _this.setState({
@@ -71,7 +72,6 @@ var MyControl = function (_React$Component) {
             });
         };
         _this.onClose = function (e) {
-            // console.log(e);
             _this.setState({
                 visible: false
             });
@@ -79,6 +79,11 @@ var MyControl = function (_React$Component) {
         _this.onDestroyOnCloseChange = function (e) {
             _this.setState({
                 destroyOnClose: e.target.checked
+            });
+        };
+        _this.onForceRenderChange = function (e) {
+            _this.setState({
+                forceRender: e.target.checked
             });
         };
         _this.changeWidth = function () {
@@ -107,16 +112,16 @@ var MyControl = function (_React$Component) {
         if (this.state.center) {
             wrapClassName = 'center';
         }
-        var dialog = __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__src_DialogWrap__["a" /* default */], { visible: this.state.visible, wrapClassName: wrapClassName, animation: "zoom", maskAnimation: "fade", onClose: this.onClose, style: style, mousePosition: this.state.mousePosition, destroyOnClose: this.state.destroyOnClose, closeIcon: this.state.useIcon ? getSvg(clearPath, {}, true) : undefined }, __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("input", { autoFocus: true }), __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("p", null, "basic modal"), __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("button", { onClick: this.changeWidth }, "change width"), __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("button", { onClick: this.toggleCloseIcon }, "use custom icon, is using icon: ", this.state.useIcon && 'true' || 'false', "."), __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("div", { style: { height: 200 } }));
-        return __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("div", { style: { width: '90%', margin: '0 auto' } }, __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("style", null, '\n            .center {\n              display: flex;\n              align-items: center;\n              justify-content: center;\n            }\n            '), __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("p", null, __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("button", { className: "btn btn-primary", onClick: this.onClick }, "show dialog"), '\xA0', __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("label", null, "destroy on close:", __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("input", { type: "checkbox", checked: this.state.destroyOnClose, onChange: this.onDestroyOnCloseChange })), '\xA0', __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("label", null, "center", __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("input", { type: "checkbox", checked: this.state.center, onChange: this.center }))), dialog);
+        var dialog = __WEBPACK_IMPORTED_MODULE_5_react__["createElement"](__WEBPACK_IMPORTED_MODULE_7__src_DialogWrap__["a" /* default */], { visible: this.state.visible, wrapClassName: wrapClassName, animation: "zoom", maskAnimation: "fade", onClose: this.onClose, style: style, mousePosition: this.state.mousePosition, destroyOnClose: this.state.destroyOnClose, closeIcon: this.state.useIcon ? getSvg(clearPath, {}, true) : undefined, forceRender: this.state.forceRender }, __WEBPACK_IMPORTED_MODULE_5_react__["createElement"]("input", { autoFocus: true }), __WEBPACK_IMPORTED_MODULE_5_react__["createElement"]("p", null, "basic modal"), __WEBPACK_IMPORTED_MODULE_5_react__["createElement"]("button", { onClick: this.changeWidth }, "change width"), __WEBPACK_IMPORTED_MODULE_5_react__["createElement"]("button", { onClick: this.toggleCloseIcon }, "use custom icon, is using icon: ", this.state.useIcon && 'true' || 'false', "."), __WEBPACK_IMPORTED_MODULE_5_react__["createElement"]("div", { style: { height: 200 } }));
+        return __WEBPACK_IMPORTED_MODULE_5_react__["createElement"]("div", { style: { width: '90%', margin: '0 auto' } }, __WEBPACK_IMPORTED_MODULE_5_react__["createElement"]("style", null, '\n            .center {\n              display: flex;\n              align-items: center;\n              justify-content: center;\n            }\n            '), __WEBPACK_IMPORTED_MODULE_5_react__["createElement"]("p", null, __WEBPACK_IMPORTED_MODULE_5_react__["createElement"]("button", { className: "btn btn-primary", onClick: this.onClick }, "show dialog"), '\xA0', __WEBPACK_IMPORTED_MODULE_5_react__["createElement"]("label", null, "destroy on close:", __WEBPACK_IMPORTED_MODULE_5_react__["createElement"]("input", { type: "checkbox", checked: this.state.destroyOnClose, onChange: this.onDestroyOnCloseChange })), '\xA0', __WEBPACK_IMPORTED_MODULE_5_react__["createElement"]("label", null, "center", __WEBPACK_IMPORTED_MODULE_5_react__["createElement"]("input", { type: "checkbox", checked: this.state.center, onChange: this.center })), '\xA0', __WEBPACK_IMPORTED_MODULE_5_react__["createElement"]("label", null, "force render", __WEBPACK_IMPORTED_MODULE_5_react__["createElement"]("input", { type: "checkbox", checked: this.state.forceRender, onChange: this.onForceRenderChange }))), dialog);
     };
 
     return MyControl;
-}(__WEBPACK_IMPORTED_MODULE_5_react___default.a.Component);
+}(__WEBPACK_IMPORTED_MODULE_5_react__["Component"]);
 
-__WEBPACK_IMPORTED_MODULE_6_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("div", null, __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement("h2", null, "ant-design dialog"), __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(MyControl, null)), document.getElementById('__react-content'));
+__WEBPACK_IMPORTED_MODULE_6_react_dom__["render"](__WEBPACK_IMPORTED_MODULE_5_react__["createElement"]("div", null, __WEBPACK_IMPORTED_MODULE_5_react__["createElement"]("h2", null, "ant-design dialog"), __WEBPACK_IMPORTED_MODULE_5_react__["createElement"](MyControl, null)), document.getElementById('__react-content'));
 
 /***/ })
 
-},[58]);
+},[60]);
 //# sourceMappingURL=ant-design.js.map
