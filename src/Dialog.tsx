@@ -69,6 +69,8 @@ export default class Dialog extends React.Component<IDialogPropTypes, any> {
   private sentinelEnd: HTMLElement;
   private bodyIsOverflowing: boolean;
   private scrollbarWidth: number;
+  private dialogMouseDown: boolean;
+  private timeoutId: number;
 
   componentWillMount() {
     this.inTransition = false;
@@ -76,6 +78,10 @@ export default class Dialog extends React.Component<IDialogPropTypes, any> {
   }
   componentDidMount() {
     this.componentDidUpdate({});
+    // if forceRender is true, set element style display to be none;
+    if (this.props.forceRender && this.wrap) {
+      this.wrap.style.display = 'none';
+    }
   }
   componentDidUpdate(prevProps: IDialogPropTypes) {
     const props = this.props;
@@ -111,6 +117,7 @@ export default class Dialog extends React.Component<IDialogPropTypes, any> {
     if (this.props.visible || this.inTransition) {
       this.removeScrollingEffect();
     }
+    clearTimeout(this.timeoutId);
   }
 
   tryFocus() {
@@ -133,12 +140,25 @@ export default class Dialog extends React.Component<IDialogPropTypes, any> {
       afterClose();
     }
   }
+
+  onDialogMouseDown = () => {
+    this.dialogMouseDown = true;
+  }
+
+  onMaskMouseUp: React.MouseEventHandler<HTMLDivElement> = () => {
+    if (this.dialogMouseDown) {
+      this.timeoutId = setTimeout(() => {
+        this.dialogMouseDown = false;
+      }, 0);
+    }
+  }
+
   onMaskClick = (e: React.MouseEvent<HTMLDivElement>) => {
     // android trigger click on open (fastclick??)
     if (Date.now() - this.openTime < 300) {
       return;
     }
-    if (e.target === e.currentTarget) {
+    if (e.target === e.currentTarget && !this.dialogMouseDown) {
       this.close(e);
     }
   }
@@ -200,15 +220,17 @@ export default class Dialog extends React.Component<IDialogPropTypes, any> {
     if (closable) {
       closer = (
         <button
+          type="button"
           onClick={this.close}
           aria-label="Close"
           className={`${prefixCls}-close`}
         >
           {props.closeIcon || <span className={`${prefixCls}-close-x`} />}
-        </button>);
+        </button>
+      );
     }
 
-    const style = { ... props.style, ...dest };
+    const style = { ...props.style, ...dest };
     const sentinelStyle = { width: 0, height: 0, overflow: 'hidden' };
     const transitionName = this.getTransitionName();
     const dialogElement = (
@@ -219,10 +241,9 @@ export default class Dialog extends React.Component<IDialogPropTypes, any> {
         style={style}
         className={`${prefixCls} ${props.className || ''}`}
         visible={props.visible}
+        onMouseDown={this.onDialogMouseDown}
       >
-        <div tabIndex={0} ref={this.saveRef('sentinelStart')} style={sentinelStyle}>
-          sentinelStart
-        </div>
+        <div tabIndex={0} ref={this.saveRef('sentinelStart')} style={sentinelStyle} aria-hidden="true" />
         <div className={`${prefixCls}-content`}>
           {closer}
           {header}
@@ -236,9 +257,7 @@ export default class Dialog extends React.Component<IDialogPropTypes, any> {
           </div>
           {footer}
         </div>
-        <div tabIndex={0} ref={this.saveRef('sentinelEnd')} style={sentinelStyle}>
-          sentinelEnd
-        </div>
+        <div tabIndex={0} ref={this.saveRef('sentinelEnd')} style={sentinelStyle} aria-hidden="true" />
       </LazyRenderBox>
     );
     return (
@@ -262,7 +281,7 @@ export default class Dialog extends React.Component<IDialogPropTypes, any> {
     }
     return style;
   }
-  getWrapStyle = () : any => {
+  getWrapStyle = (): any => {
     return { ...this.getZIndexStyle(), ...this.props.wrapStyle };
   }
   getMaskStyle = () => {
@@ -405,7 +424,8 @@ export default class Dialog extends React.Component<IDialogPropTypes, any> {
           onKeyDown={this.onKeyDown}
           className={`${prefixCls}-wrap ${props.wrapClassName || ''}`}
           ref={this.saveRef('wrap')}
-          onClick={maskClosable ? this.onMaskClick : undefined}
+          onClick={maskClosable ? this.onMaskClick : null}
+          onMouseUp={maskClosable ? this.onMaskMouseUp : null}
           role="dialog"
           aria-labelledby={props.title ? this.titleId : null}
           style={style}
